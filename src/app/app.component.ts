@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { WidgetContainerComponent } from './widget-container.component';
 import { Widget1Component } from './widget1.component';
 import { Widget2Component } from './widget2.component';
+import { WidgetComponent } from './widget.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -37,8 +38,8 @@ export class AppComponent {
       }
     }
   }
-
-  closeWidget(widgetId: number) {
-    this.widgetContainerComponent.closeWidget(widgetId);
+  
+  closeWidget(uniqueWidgetId: number) {
+    this.widgetContainerComponent.closeWidget(uniqueWidgetId);
   }
 }

@@ -19,7 +19,7 @@ export class WidgetContainerComponent {
   @ViewChild(DynamicWidgetAnchorDirective) dynamicWidgetPlaceholder: DynamicWidgetAnchorDirective;
   // Keep track of all the widget component
   dynamicWidgetComponents: WidgetComponent[] = [];
-
+  wid = 0;
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
   addWidget(template, data) {
@@ -34,16 +34,17 @@ export class WidgetContainerComponent {
     // provide all the required data
     instance.dataContext = data;
     instance.template = template;
+    instance.uniqueWidgetId = this.wid;
+    this.wid += 1;
 
     // Add the widget component instance here.
     this.dynamicWidgetComponents.push(instance);
   }
 
-  closeWidget(widgetId: number) {
+  closeWidget(uniqueWidgetId: number) {
     for (let idx = 0; idx < this.dynamicWidgetComponents.length; idx++) {
-      if (this.dynamicWidgetComponents[idx].dataContext['widgetId'] === widgetId) {
+      if (this.dynamicWidgetComponents[idx].uniqueWidgetId === uniqueWidgetId) {
         this.dynamicWidgetComponents.splice(idx, 1);
-
         // delete component to prevent memoryleak
         const viewContainerRef = this.dynamicWidgetPlaceholder.viewContainer;
         viewContainerRef.remove(idx);
