@@ -4,7 +4,7 @@
     <button mat-button>Add widget 2</button>
   </div>
   <div fxLayout="row" fxLayoutGap="10px" fxLayoutWrap="wrap">
-    <app-widget-container [template]="dynamicWidget" [dataContext]="widgetNum"></app-widget-container>
+    <app-widget [template]="dynamicWidget" [dataContext]="widgetNum"></app-widget>
     <ng-template #dynamicWidget let-widgetNumber="data">
       <app-widget1 [widgetNumber]="widgetNumber"></app-widget1>
     </ng-template>
