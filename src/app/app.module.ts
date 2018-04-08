@@ -10,6 +10,8 @@ import { WidgetComponent } from './widget.component';
 import { WidgetContainerComponent } from './widget-container.component';
 import { DynamicWidgetAnchorDirective } from './dynamic-widget-anchor.directive';
 
+import { AngularDraggableModule } from 'angular2-draggable';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,7 @@ import { DynamicWidgetAnchorDirective } from './dynamic-widget-anchor.directive'
     WidgetContainerComponent,
     DynamicWidgetAnchorDirective
   ],
-  imports: [BrowserModule, MatCardModule, FlexLayoutModule],
+  imports: [BrowserModule, MatCardModule, FlexLayoutModule, AngularDraggableModule],
   providers: [],
   entryComponents: [WidgetComponent],
   bootstrap: [AppComponent]

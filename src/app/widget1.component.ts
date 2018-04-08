@@ -3,7 +3,7 @@ import { Component, ViewChild, Input, EventEmitter, Output } from '@angular/core
 @Component({
   selector: 'app-widget1',
   template: `
-   <mat-card fxFlex="33%%">
+   <mat-card ngDraggable fxFlex="33%%">
       <mat-card-header>
         <mat-card-title>{{data?.widgetTitle}}</mat-card-title>
       </mat-card-header>

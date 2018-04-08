@@ -8,7 +8,7 @@ import { WidgetComponent } from './widget.component';
   template: `
     <!-- Placeholder to add all the widgets dynamically-->
     <div fxLayout fxLayoutGap="10px">
-      <ng-template appDynamicWidgetAnchor></ng-template>
+      <ng-template  appDynamicWidgetAnchor></ng-template>
     </div>
   `
 })
