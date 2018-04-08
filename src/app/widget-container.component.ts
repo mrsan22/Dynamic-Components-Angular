@@ -7,7 +7,9 @@ import { WidgetComponent } from './widget.component';
   selector: 'app-widget-container',
   template: `
     <!-- Placeholder to add all the widgets dynamically-->
-    <ng-template appDynamicWidgetAnchor></ng-template>
+    <div fxLayout fxLayoutGap="10px">
+      <ng-template appDynamicWidgetAnchor></ng-template>
+    </div>
   `
 })
 export class WidgetContainerComponent {
@@ -35,5 +37,17 @@ export class WidgetContainerComponent {
 
     // Add the widget component instance here.
     this.dynamicWidgetComponents.push(instance);
+  }
+
+  closeWidget(widgetId: number) {
+    for (let idx = 0; idx < this.dynamicWidgetComponents.length; idx++) {
+      if (this.dynamicWidgetComponents[idx].dataContext['widgetId'] === widgetId) {
+        this.dynamicWidgetComponents.splice(idx, 1);
+
+        // delete component to prevent memoryleak
+        const viewContainerRef = this.dynamicWidgetPlaceholder.viewContainer;
+        viewContainerRef.remove(idx);
+      }
+    }
   }
 }

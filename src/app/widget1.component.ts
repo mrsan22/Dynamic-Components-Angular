@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input } from '@angular/core';
+import { Component, ViewChild, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-widget1',
@@ -11,7 +11,7 @@ import { Component, ViewChild, Input } from '@angular/core';
         <p>I am widget {{data?.widgetNumber}} and created dynamically here. I will be draggable in future.</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>Remove</button>
+        <button mat-button (click)="closeWidget(data.widgetId)">Remove</button>
         <button mat-button>Submit</button>
       </mat-card-actions>
     </mat-card>
@@ -20,7 +20,14 @@ import { Component, ViewChild, Input } from '@angular/core';
 export class Widget1Component {
   @Input()
   data: object = {
+    widgetId: 1,
     widgetTitle: '',
     widgetNumber: ''
   };
+
+  @Output() onCloseWidget = new EventEmitter<number>();
+
+  closeWidget() {
+    this.onCloseWidget.emit(this.data['widgetId']);
+  }
 }

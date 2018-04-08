@@ -1,13 +1,16 @@
 <div fxLayout="column" class="wrapper" fxLayoutGap="20px">
   <div fxLayout="row" fxLayoutGap=20px>
-    <button mat-button (click)="addWidget()">Add widget 1</button>
-    <button mat-button>Add widget 2</button>
+    <button mat-button (click)="addWidget(1)">Add widget 1</button>
+    <button mat-button (click)="addWidget(2)">Add widget 2</button>
   </div>
   <div fxLayout="row" fxLayoutGap="10px" fxLayoutWrap="wrap">
     <app-widget-container></app-widget-container>
     <!-- Dynamic template for each new widget -->
-    <ng-template #dynamicWidget let-widgetData="data">
-      <app-widget1 [data]="widgetData"></app-widget1>
+    <ng-template #dynamicWidget1 let-widgetData="data">
+      <app-widget1 [data]="widgetData" (onCloseWidget)="closeWidget($event)"></app-widget1>
+    </ng-template>
+    <ng-template #dynamicWidget2 let-widgetData="data">
+      <app-widget2 [data]="widgetData" (onCloseWidget)="closeWidget($event)"></app-widget2>
     </ng-template>
   </div>
 </div>
