@@ -21,6 +21,7 @@ import { DynamicWidgetAnchorDirective } from './dynamic-widget-anchor.directive'
   ],
   imports: [BrowserModule, MatCardModule, FlexLayoutModule],
   providers: [],
+  entryComponents: [WidgetComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

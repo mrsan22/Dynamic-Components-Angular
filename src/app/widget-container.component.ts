@@ -20,7 +20,7 @@ export class WidgetContainerComponent {
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
-  addWidget(title, template, data) {
+  addWidget(template, data) {
     // create a factory and pass on the component (which you want to create dynamically). In this case it is `WidgetComponent`.
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(WidgetComponent);
     // This allows to attach componens dynamically - ViewContainerRef
