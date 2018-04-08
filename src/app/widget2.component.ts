@@ -8,7 +8,7 @@ import { Component, ViewChild, Input } from '@angular/core';
         <mat-card-title>Widget2</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <p>I am widget 2 and created dynamically here. I will be draggable in future.</p>
+        <p>I am widget {{widgetNumber}} and created dynamically here. I will be draggable in future.</p>
       </mat-card-content>
       <mat-card-actions>
         <button mat-button>Remove</button>
@@ -17,4 +17,6 @@ import { Component, ViewChild, Input } from '@angular/core';
     </mat-card>
   `
 })
-export class Widget2Component {}
+export class Widget2Component {
+  @Input() widgetNumber;
+}
