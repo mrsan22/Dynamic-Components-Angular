@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, ViewChild } from '@angular/core';
+import { WidgetContainerComponent } from './widget-container.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   widgetNum = 1;
+  @ViewChild(WidgetContainerComponent) widgetContainerComponent: WidgetContainerComponent;
+
+  addWidget() {
+    this.widgetContainerComponent.addWidget();
+  }
 }
