@@ -1,23 +1,20 @@
-import { Component, ViewChild, Input, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-widget2',
   template: `
-   <mat-card ngDraggable fxFlex="33%%">
+   <mat-card fxFlex="33%%">
       <mat-card-header>
         <mat-card-title>{{data?.widgetTitle}}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <p>I am widget {{data?.widgetNum}} and created dynamically here. I am draggable too.</p>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-button (click)="closeWidget(uniqueWidgetId)">Remove</button>
-        <button mat-button>Submit</button>
-      </mat-card-actions>
     </mat-card>
   `
 })
 export class Widget2Component {
+  // All the data should be contained within this Component if we use it with ng-Grid.
   @Input()
   data: object = {
     widgetId: 2,

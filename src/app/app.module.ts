@@ -1,17 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatCardModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { MatCardModule } from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
+import { AngularDraggableModule } from 'angular2-draggable';
+import { GridModule } from 'ng2-grid-component';
+import { NgDraggableWidgetModule } from 'ngx-draggable-widget';
 import { AppComponent } from './app.component';
+import { DynamicWidgetAnchorDirective } from './dynamic-widget-anchor.directive';
+import { WidgetContainerComponent } from './widget-container.component';
+import { WidgetComponent } from './widget.component';
 import { Widget1Component } from './widget1.component';
 import { Widget2Component } from './widget2.component';
-import { WidgetComponent } from './widget.component';
-import { WidgetContainerComponent } from './widget-container.component';
-import { DynamicWidgetAnchorDirective } from './dynamic-widget-anchor.directive';
-
-import { AngularDraggableModule } from 'angular2-draggable';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,9 +20,16 @@ import { AngularDraggableModule } from 'angular2-draggable';
     WidgetContainerComponent,
     DynamicWidgetAnchorDirective
   ],
-  imports: [BrowserModule, MatCardModule, FlexLayoutModule, AngularDraggableModule],
+  imports: [
+    NgDraggableWidgetModule,
+    BrowserModule,
+    MatCardModule,
+    FlexLayoutModule,
+    AngularDraggableModule,
+    GridModule
+  ],
   providers: [],
-  entryComponents: [WidgetComponent],
+  entryComponents: [WidgetComponent, Widget1Component, Widget2Component],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

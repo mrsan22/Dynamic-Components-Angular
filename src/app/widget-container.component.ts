@@ -1,14 +1,18 @@
-import { Component, ViewChild, Input, ComponentFactoryResolver } from '@angular/core';
-
+import { Component, ComponentFactoryResolver, Input, ViewChild } from '@angular/core';
 import { DynamicWidgetAnchorDirective } from './dynamic-widget-anchor.directive';
 import { WidgetComponent } from './widget.component';
+
+interface Box {
+  id: number;
+  config: any;
+}
 
 @Component({
   selector: 'app-widget-container',
   template: `
     <!-- Placeholder to add all the widgets dynamically-->
     <div fxLayout fxLayoutGap="10px">
-      <ng-template  appDynamicWidgetAnchor></ng-template>
+      <ng-template appDynamicWidgetAnchor></ng-template>
     </div>
   `
 })
@@ -34,6 +38,7 @@ export class WidgetContainerComponent {
     // provide all the required data
     instance.dataContext = data;
     instance.template = template;
+    console.log(instance);
     instance.uniqueWidgetId = this.wid;
     this.wid += 1;
 

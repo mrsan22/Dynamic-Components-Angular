@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.widget-header-title {
+  text-align: center;
+}
+
+/* For styling X (remove icon) */
+.widget-header-option {
+}
+
+/* CSS for widget content*/
+.widget-content {
+}
+
+/* CSS for widget resize */
+.widget-resize {
+}
